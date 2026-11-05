@@ -1,409 +1,822 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Test de Perfil DISC</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frutos de la Palma - El alma del Caribe en tu mesa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --verde-palma: #1B3B2B;
+      --verde-hoja: #2D5E43;
+      --verde-claro: #E8F0EC;
+      --rojo-corozo: #7A0C2E;
+      --rojo-brillante: #9E103C;
+      --dorado: #C5A059;
+      --crema: #FAF7F2;
+      --texto-oscuro: #222222;
+      --blanco: #FFFFFF;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      -webkit-tap-highlight-color: transparent;
     }
+
     body {
-      background-color: #0f172a;
-      color: #f8fafc;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      min-height: 100dvh;
-      justify-content: space-between;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--crema);
+      color: var(--texto-oscuro);
+      line-height: 1.6;
     }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* HEADER & NAV */
     header {
-      background-color: rgba(15, 23, 42, 0.95);
-      border-bottom: 1px solid #334155;
-      padding: 12px 16px;
+      background-color: var(--verde-palma);
+      color: var(--blanco);
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 15px 20px;
     }
-    .logo {
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--rojo-corozo), var(--rojo-brillante));
+      border: 2px solid var(--dorado);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .logo-text h1 {
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      color: var(--blanco);
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      font-size: 0.75rem;
+      color: var(--dorado);
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--blanco);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--dorado);
+    }
+
+    .btn-nav-wa {
+      background-color: var(--rojo-corozo);
+      color: var(--blanco) !important;
+      padding: 8px 18px;
+      border-radius: 25px;
+      border: 1px solid var(--dorado);
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn-nav-wa:hover {
+      background-color: var(--rojo-brillante);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(rgba(27, 59, 43, 0.88), rgba(27, 59, 43, 0.92)), 
+                  url('https://images.unsplash.com/photo-1546548970-71785318a17b?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--blanco);
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--dorado);
+      color: var(--verde-palma);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: var(--blanco);
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 30px;
+      color: #E0E0E0;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: var(--rojo-corozo);
+      color: var(--blanco);
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid var(--dorado);
+      box-shadow: 0 4px 12px rgba(122, 12, 46, 0.4);
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--rojo-brillante);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--blanco);
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid var(--blanco);
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255,255,255,0.15);
+      border-color: var(--dorado);
+      color: var(--dorado);
+    }
+
+    /* BENEFICIOS / FEATURES */
+    .features-bar {
+      background-color: var(--verde-hoja);
+      color: var(--blanco);
+      padding: 25px 20px;
+    }
+
+    .features-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-icon {
+      font-size: 1.8rem;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* SECCION PRODUCTOS */
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h3 {
+      font-size: 2.2rem;
+      color: var(--verde-palma);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .products-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 20px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+    }
+
+    .product-card {
+      background-color: var(--blanco);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border: 1px solid #EAEAEA;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .product-img {
+      height: 250px;
+      background-color: #F4EBE1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--rojo-corozo);
+      color: var(--blanco);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 15px;
+      border: 1px solid var(--dorado);
+    }
+
+    .product-info {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-info h4 {
+      font-size: 1.5rem;
+      color: var(--verde-palma);
+      margin-bottom: 5px;
+    }
+
+    .product-measure {
+      color: var(--rojo-corozo);
       font-weight: 700;
       font-size: 1.1rem;
-      color: #fff;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .product-info p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .product-list {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .product-list li {
+      font-size: 0.88rem;
+      color: #444;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .logo-badge {
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-      width: 28px;
-      height: 28px;
+
+    .product-list li::before {
+      content: "✓";
+      color: var(--verde-hoja);
+      font-weight: bold;
+    }
+
+    .btn-card {
+      display: block;
+      text-align: center;
+      background-color: var(--verde-palma);
+      color: var(--blanco);
+      padding: 12px;
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
     }
-    .progress-bar-bg {
-      width: 80px;
-      height: 6px;
-      background-color: #334155;
-      border-radius: 99px;
-      overflow: hidden;
+
+    .btn-card:hover {
+      background-color: var(--verde-hoja);
     }
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #6366f1, #a855f7);
-      transition: width 0.3s ease;
+
+    /* RECETAS / USOS */
+    .recipes-section {
+      background-color: var(--verde-claro);
+      padding: 70px 20px;
     }
-    main {
-      max-width: 600px;
+
+    .recipes-grid {
+      max-width: 1100px;
       margin: 0 auto;
-      width: 100%;
-      padding: 20px 16px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
-    .card {
-      background-color: rgba(30, 41, 59, 0.7);
-      border: 1px solid #334155;
-      border-radius: 16px;
-      padding: 24px 20px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+
+    .recipe-card {
+      background: var(--blanco);
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 5px solid var(--rojo-corozo);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    h2 {
-      font-size: 1.25rem;
-      line-height: 1.4;
-      margin-bottom: 16px;
-      color: #ffffff;
+
+    .recipe-card h4 {
+      color: var(--verde-palma);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
     }
-    p.desc {
-      color: #94a3b8;
-      font-size: 0.95rem;
-      line-height: 1.5;
+
+    .recipe-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* CALCULADORA PEDIDOS */
+    .order-section {
+      max-width: 800px;
+      margin: 70px auto;
+      padding: 0 20px;
+    }
+
+    .order-box {
+      background-color: var(--blanco);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+      border: 2px solid var(--verde-claro);
+    }
+
+    .form-group {
       margin-bottom: 20px;
     }
-    .btn-main {
-      width: 100%;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      color: white;
-      border: none;
-      padding: 14px;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--verde-palma);
     }
-    .option-btn {
+
+    .form-control {
       width: 100%;
-      text-align: left;
-      background-color: #1e293b;
-      border: 1px solid #334155;
-      color: #cbd5e1;
-      padding: 14px 16px;
-      border-radius: 12px;
-      margin-bottom: 10px;
+      padding: 12px;
+      border: 1px solid #CCC;
+      border-radius: 8px;
+      font-family: inherit;
       font-size: 0.95rem;
-      line-height: 1.4;
-      cursor: pointer;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
     }
-    .option-btn.selected {
-      border-color: #6366f1;
-      background-color: rgba(99, 102, 241, 0.15);
-      color: #fff;
-    }
-    .radio-circle {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      border: 2px solid #64748b;
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
-    .option-btn.selected .radio-circle {
-      border-color: #818cf8;
-      background-color: #6366f1;
-    }
-    .nav-row {
+
+    .product-selector {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 12px;
+      padding: 15px;
+      background: var(--crema);
+      border-radius: 8px;
+      margin-bottom: 15px;
     }
-    .btn-subtle {
-      background: none;
-      border: none;
-      color: #94a3b8;
-      font-size: 0.85rem;
-      font-weight: 600;
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-qty {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--verde-palma);
+      background: var(--blanco);
+      color: var(--verde-palma);
+      font-weight: bold;
+      font-size: 1.1rem;
       cursor: pointer;
-      padding: 8px;
     }
-    .hidden {
-      display: none !important;
-    }
-    .res-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 99px;
-      font-size: 0.75rem;
+
+    .btn-order-submit {
+      width: 100%;
+      background-color: #25D366;
+      color: var(--blanco);
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
       font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      transition: background 0.3s;
     }
-    .res-box {
-      background-color: #0f172a;
-      border: 1px solid #1e293b;
-      padding: 12px 14px;
-      border-radius: 10px;
-      margin-bottom: 10px;
+
+    .btn-order-submit:hover {
+      background-color: #1EBE5D;
     }
-    .res-box h4 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: #64748b;
-      margin-bottom: 4px;
-    }
-    .res-box p {
-      font-size: 0.9rem;
-      color: #e2e8f0;
-      font-weight: 500;
-    }
+
+    /* FOOTER & REDES */
     footer {
+      background-color: var(--verde-palma);
+      color: var(--blanco);
+      padding: 50px 20px 20px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 35px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h5 {
+      font-size: 1.2rem;
+      color: var(--dorado);
+      margin-bottom: 15px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #DDD;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .social-btn:hover {
+      background: var(--rojo-corozo);
+      color: var(--blanco) !important;
+    }
+
+    .copyright {
       text-align: center;
-      padding: 12px;
-      font-size: 0.75rem;
-      color: #475569;
-      border-top: 1px solid #1e293b;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      font-size: 0.85rem;
+      color: #AAA;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 2rem; }
+      nav ul { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <div class="logo">
-      <div class="logo-badge">📊</div>
-      <span>Test DISC</span>
-    </div>
-    <div id="progress-container" class="hidden" style="display: flex; align-items: center; gap: 8px;">
-      <span id="progress-text" style="font-size: 0.75rem; color: #94a3b8;">1/10</span>
-      <div class="progress-bar-bg">
-        <div id="progress-bar" class="progress-bar-fill"></div>
+    <div class="nav-container">
+      <div class="logo-box">
+        <div class="logo-badge">🌴</div>
+        <div class="logo-text">
+          <h1 class="brand-font">FRUTOS DE LA PALMA</h1>
+          <span>Sinuana Corozo</span>
+        </div>
       </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#recetas">Recetas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#pedir" class="btn-nav-wa">Hacer Pedido</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Inicio -->
-    <div id="welcome-screen" class="card" style="text-align: center;">
-      <h2 style="font-size: 1.5rem; margin-bottom: 10px;">Descubre tu Perfil DISC</h2>
-      <p class="desc">Responde a 10 preguntas breves sobre tu forma de actuar en el trabajo o la universidad para descubrir tu estilo predominantemente conductual.</p>
-      <button onclick="startQuiz()" class="btn-main">Comenzar el Test</button>
-    </div>
-
-    <!-- Preguntas -->
-    <div id="quiz-screen" class="hidden">
-      <div class="card">
-        <h2 id="question-text"></h2>
-        <div id="options-container"></div>
-      </div>
-      <div class="nav-row">
-        <button id="prev-btn" onclick="prevQuestion()" class="btn-subtle" style="visibility: hidden;">← Anterior</button>
-        <span style="font-size: 0.75rem; color: #64748b;">Selecciona 1 opción</span>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <span class="hero-tag">Sabana del Caribe</span>
+      <h2 class="brand-font">El alma del Caribe en tu mesa</h2>
+      <p>Sabor natural y tradición ancestral en cada gota. Mermeladas y siropes elaborados artesanalmente con corozo seleccionado.</p>
+      <div class="hero-buttons">
+        <a href="#pedir" class="btn-primary">Pedir por WhatsApp</a>
+        <a href="#productos" class="btn-secondary">Ver Productos</a>
       </div>
     </div>
+  </section>
 
-    <!-- Resultados -->
-    <div id="result-screen" class="hidden">
-      <div id="result-card" class="card"></div>
-      <button onclick="restartQuiz()" class="btn-subtle" style="width: 100%; margin-top: 16px; text-align: center;">Repetir Test</button>
+  <!-- FEATURES BAR -->
+  <div class="features-bar">
+    <div class="features-grid">
+      <div class="feature-item">
+        <span class="feature-icon">🌿</span>
+        <span class="feature-title">100% NATURAL</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🌱</span>
+        <span class="feature-title">ORIGEN SOSTENIBLE</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🍇</span>
+        <span class="feature-title">FUENTE DE ANTIOXIDANTES</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🍹</span>
+        <span class="feature-title">FÁCIL DE PREPARAR</span>
+      </div>
     </div>
-  </main>
+  </div>
 
-  <footer>Evaluación de Perfil Conductual DISC</footer>
+  <!-- PRODUCTOS -->
+  <section class="products-container" id="productos">
+    <div class="section-title">
+      <h3 class="brand-font">Nuestros Productos</h3>
+      <p>Disfruta de la frescura y la intensidad del corozo en sus dos mejores presentaciones artesanales.</p>
+    </div>
 
-  <script>
-    const quizData = [
-      {
-        q: "1. Te asignan un trabajo grupal importante en la universidad. ¿Cuál es tu primera reacción?",
-        opts: [
-          { text: "Asumo la iniciativa de inmediato, organizo el plan y asigno las tareas a cada uno.", type: "D" },
-          { text: "Propongo hacer un grupo de WhatsApp, reunirnos a tomar un café y conocernos mejor.", type: "I" },
-          { text: "Escucho lo que proponen los demás y me ofrezco a apoyar en lo que el grupo necesite.", type: "S" },
-          { text: "Reviso detenidamente la rúbrica, el formato de entrega y los requisitos del profesor.", type: "C" }
-        ]
-      },
-      {
-        q: "2. El grupo tiene un desacuerdo o conflicto sobre la entrega del proyecto. ¿Qué haces?",
-        opts: [
-          { text: "Voy al grano, tomo la decisión final rápidamente y pido que sigamos adelante.", type: "D" },
-          { text: "Uso el humor y el diálogo para calmar los ánimos y convencer a todos de ponernos de acuerdo.", type: "I" },
-          { text: "Intento conciliar, busco que todos se sientan escuchados y evito que haya tensión.", type: "S" },
-          { text: "Muestro con datos, guías y normas cuál es la opción técnicamente correcta para no perder puntos.", type: "C" }
-        ]
-      },
-      {
-        q: "3. En una exposición o presentación frente al salón, te caracteriza:",
-        opts: [
-          { text: "Hablar con seguridad, ir directo a las conclusiones y mostrar carácter firme.", type: "D" },
-          { text: "Tener energía, gesticular, conectar con el público y hacer la charla entretenida.", type: "I" },
-          { text: "Hablar de forma pausada, clara, tranquila y apoyar activamente cuando le toca a un compañero.", type: "S" },
-          { text: "Tener una estructura perfecta, usar cifras precisas y responder basándome en fuentes confiables.", type: "C" }
-        ]
-      },
-      {
-        q: "4. Faltan solo 2 horas para la hora límite de entrega y el proyecto no está listo. ¿Cómo reaccionas?",
-        opts: [
-          { text: "Me activo con todo, tomo el control total del documento y lo termino bajo presión.", type: "D" },
-          { text: "Motivo al grupo diciendo \"¡Tranquilos, sí alcanzamos!\", mientras redacto rápidamente.", type: "I" },
-          { text: "Mantengo la calma, apoyo en silencio lo que me pidan y no entro en pánico.", type: "S" },
-          { text: "Me estreso si las cosas se hacen con afán o sin calidad, pero reviso minuciosamente la versión final.", type: "C" }
-        ]
-      },
-      {
-        q: "5. ¿Qué cualidad valoras más cuando trabajas con un socio o compañero?",
-        opts: [
-          { text: "Que sea eficiente, rápido y orientado a resultados.", type: "D" },
-          { text: "Que sea creativo, entusiasta y fácil de tratar.", type: "I" },
-          { text: "Que sea leal, constante, paciente y buen compañero.", type: "S" },
-          { text: "Que sea organizado, puntual, detallista y preciso.", type: "C" }
-        ]
-      },
-      {
-        q: "6. Estás negociando el precio de un producto o servicio en un caso de clase. Tu estrategia es:",
-        opts: [
-          { text: "Exigir lo que quiero firmemente y presionar para cerrar el trato a mi favor de inmediato.", type: "D" },
-          { text: "Usar mi persuasión, encanto y empatía para convencer a la otra parte de colaborar.", type: "I" },
-          { text: "Buscar un punto medio donde ambas partes ganen y se mantenga una buena relación a largo plazo.", type: "S" },
-          { text: "Presentar tablas de costos, análisis de mercado y argumentos lógicos difíciles de refutar.", type: "C" }
-        ]
-      },
-      {
-        q: "7. ¿Cuál es tu mayor temor o lo que más te molesta en un equipo de trabajo?",
-        opts: [
-          { text: "La lentitud, la falta de acción y perder el tiempo en rodeos.", type: "D" },
-          { text: "El rechazo, la rutina aburrida o que el ambiente sea muy frío e impersonal.", type: "I" },
-          { text: "Los cambios bruscos e imprevistos y el conflicto o la agresión verbal.", type: "S" },
-          { text: "La desorganización, la falta de rigor y los errores por hacer las cosas al azar.", type: "C" }
-        ]
-      },
-      {
-        q: "8. Cuando debes tomar una decisión personal o académica importante:",
-        opts: [
-          { text: "Confío en mi instinto y decido rápido para no perder oportunidades.", type: "D" },
-          { text: "Consulto con mis amigos, busco opiniones y me dejo llevar por la intuición.", type: "I" },
-          { text: "Lo consulto con calma, buscando mantener la estabilidad de mi entorno.", type: "S" },
-          { text: "Analizo pros y contras, investigo datos y lo pienso el tiempo que sea necesario.", type: "C" }
-        ]
-      },
-      {
-        q: "9. En tu entorno o grupo de amigos, te reconocen por ser:",
-        opts: [
-          { text: "El líder que toma la iniciativa cuando nadie sabe qué hacer.", type: "D" },
-          { text: "El alma del grupo, el que anima los planes y conecta a las personas.", type: "I" },
-          { text: "El amigo fiel y comprensivo que siempre está dispuesto a escuchar y ayudar.", type: "S" },
-          { text: "El perfeccionista y analítico al que todos le piden revisión o consejos técnicos.", type: "C" }
-        ]
-      },
-      {
-        q: "10. ¿Cómo es tu espacio o lugar habitual de estudio/trabajo?",
-        opts: [
-          { text: "Práctico y funcional: solo tengo lo necesario para cumplir con mis objetivos rápido.", type: "D" },
-          { text: "Vistoso y lleno de vida: fotos, recuerdos, colores o notas inspiradoras.", type: "I" },
-          { text: "Acogedor, limpio, cómodo y ordenado para trabajar tranquilo.", type: "S" },
-          { text: "Impecablemente estructurado: todo clasificado, carpetas etiquetadas y herramientas a la mano.", type: "C" }
-        ]
-      }
-    ];
-
-    const profiles = {
-      D: { title: "Perfil D – DOMINANCIA", color: "#f87171", bg: "rgba(239, 68, 68, 0.2)", power: "Determinación, liderazgo directo y rapidez en la toma de decisiones.", neg: "Vas al grano y te enfocas en ganar y obtener resultados.", reto: "Practicar la paciencia y escuchar más los detalles antes de decidir." },
-      I: { title: "Perfil I – INFLUENCIA", color: "#fbbf24", bg: "rgba(245, 158, 11, 0.2)", power: "Sociabilidad, entusiasmo, persuasión y carisma.", neg: "Creas conexiones interpersonales y buscas acuerdos colaborativos.", reto: "Mantener el enfoque en los detalles técnicos y estructurar mejor los procesos." },
-      S: { title: "Perfil S – ESTABILIDAD", color: "#34d399", bg: "rgba(16, 185, 129, 0.2)", power: "Empatía, paciencia, lealtad y capacidad para mantener la armonía.", neg: "Creas confianza, escuchas activamente y no presionas a los demás.", reto: "Volverte más asertivo al defender tu postura y perderle el miedo al cambio." },
-      C: { title: "Perfil C – CUMPLIMIENTO", color: "#60a5fa", bg: "rgba(59, 130, 246, 0.2)", power: "Análisis riguroso, precisión, organización y búsqueda de la excelencia.", neg: "Te basas en hechos, datos, lógica e investigación profunda.", reto: "Evitar la \"parálisis por análisis\" y ser más flexible ante imprevistos." }
-    };
-
-    let cur = 0;
-    let answers = Array(10).fill(null);
-
-    function startQuiz() {
-      document.getElementById('welcome-screen').classList.add('hidden');
-      document.getElementById('quiz-screen').classList.remove('hidden');
-      document.getElementById('progress-container').classList.remove('hidden');
-      render();
-    }
-
-    function render() {
-      const q = quizData[cur];
-      document.getElementById('question-text').textContent = q.q;
-      const c = document.getElementById('options-container');
-      c.innerHTML = '';
-
-      q.opts.forEach(opt => {
-        const sel = answers[cur] === opt.type;
-        const b = document.createElement('button');
-        b.className = `option-btn ${sel ? 'selected' : ''}`;
-        b.onclick = () => {
-          answers[cur] = opt.type;
-          if (cur < quizData.length - 1) { cur++; render(); } else { showRes(); }
-        };
-        b.innerHTML = `<div class="radio-circle"></div><span>${opt.text}</span>`;
-        c.appendChild(b);
-      });
-
-      document.getElementById('progress-bar').style.width = `${((cur + 1) / 10) * 100}%`;
-      document.getElementById('progress-text').textContent = `${cur + 1}/10`;
-      document.getElementById('prev-btn').style.visibility = cur > 0 ? 'visible' : 'hidden';
-    }
-
-    function prevQuestion() {
-      if (cur > 0) { cur--; render(); }
-    }
-
-    function showRes() {
-      document.getElementById('quiz-screen').classList.add('hidden');
-      document.getElementById('progress-container').classList.add('hidden');
-      document.getElementById('result-screen').classList.remove('hidden');
-
-      const cnt = { D: 0, I: 0, S: 0, C: 0 };
-      answers.forEach(a => { if (a) cnt[a]++; });
-
-      let top = 'D', max = -1;
-      for (const [k, v] of Object.entries(cnt)) {
-        if (v > max) { max = v; top = k; }
-      }
-
-      const p = profiles[top];
-      document.getElementById('result-card').innerHTML = `
-        <div style="text-align: center; margin-bottom: 16px;">
-          <span class="res-badge" style="background-color: ${p.bg}; color: ${p.color};">Perfil Predominante</span>
-          <h2 style="color: ${p.color}; font-size: 1.4rem; margin-bottom: 4px;">${p.title}</h2>
-          <p style="font-size: 0.8rem; color: #94a3b8;">${max} de 10 respuestas coincidentes</p>
+    <div class="products-grid">
+      <!-- MERMELADA -->
+      <div class="product-card">
+        <div class="product-img" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=600&q=80');">
+          <span class="product-badge">Artesanal</span>
         </div>
-        <div class="res-box"><h4>⚡ Tu Superpoder</h4><p>${p.power}</p></div>
-        <div class="res-box"><h4>🤝 En Negociación</h4><p>${p.neg}</p></div>
-        <div class="res-box"><h4>🎯 Tu Reto</h4><p>${p.reto}</p></div>
-      `;
+        <div class="product-info">
+          <h4 class="brand-font">Mermelada de Corozo</h4>
+          <span class="product-measure">250 g</span>
+          <p>Mermelada artesanal con el equilibrio perfecto entre dulce y ácido. Textura ideal para untar y acompañar tus mejores momentos.</p>
+          <ul class="product-list">
+            <li>Presentación neta de 250 gramos</li>
+            <li>Elaborada con pulpa 100% seleccionada</li>
+            <li>Rica en antioxidantes naturales</li>
+          </ul>
+          <a href="#pedir" class="btn-card">Pedir Mermelada (250g)</a>
+        </div>
+      </div>
+
+      <!-- SIROPE -->
+      <div class="product-card">
+        <div class="product-img" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80');">
+          <span class="product-badge">Concentrado</span>
+        </div>
+        <div class="product-info">
+          <h4 class="brand-font">Sirope de Corozo</h4>
+          <span class="product-measure">159 ml</span>
+          <p>Concentrado natural perfecto para preparar bebidas refrescantes, cócteles, raspados o para darle un toque exótico a tus postres.</p>
+          <ul class="product-list">
+            <li>Presentación de 159 mililitros</li>
+            <li>Rinde para múltiples preparaciones</li>
+            <li>Sabor auténtico del Caribe colombiano</li>
+          </ul>
+          <a href="#pedir" class="btn-card">Pedir Sirope (159ml)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USOS Y RECETAS -->
+  <section class="recipes-section" id="recetas">
+    <div class="section-title">
+      <h3 class="brand-font">Ideas & Preparaciones</h3>
+      <p>Inspírate y lleva el sabor único del corozo a tus platos y bebidas favoritas.</p>
+    </div>
+
+    <div class="recipes-grid">
+      <div class="recipe-card">
+        <h4>🍹 Jugos y Refrescos</h4>
+        <p>Mezcla 2 cucharadas de Sirope de Corozo (159ml) en agua fría con hielo para obtener un refresco tradicional e instantáneo.</p>
+      </div>
+      <div class="recipe-card">
+        <h4>🧀 Tabla de Quesos</h4>
+        <p>Acompaña quesos costeños, queso crema o madurados con una generosa capa de Mermelada de Corozo (250g).</p>
+      </div>
+      <div class="recipe-card">
+        <h4>🍧 Raspados & Coctelería</h4>
+        <p>Utiliza el sirope como base para granizados tropicales o combina con soda y ginebra para un mocktail exótico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE PEDIDOS POR WHATSAPP -->
+  <section class="order-section" id="pedir">
+    <div class="order-box">
+      <div class="section-title" style="margin-bottom: 25px;">
+        <h3 class="brand-font">Haz tu Pedido Directo</h3>
+        <p>Selecciona las cantidades y envía tu orden directamente a nuestro WhatsApp.</p>
+      </div>
+
+      <form id="wa-form">
+        <div class="form-group">
+          <label>Tu Nombre:</label>
+          <input type="text" id="nombre" class="form-control" placeholder="Ej. Valentina Madrid" required>
+        </div>
+
+        <div class="form-group">
+          <label>Dirección de Entrega / Ciudad:</label>
+          <input type="text" id="direccion" class="form-control" placeholder="Ej. Montería, Córdoba" required>
+        </div>
+
+        <!-- SELECTOR MERMELADA -->
+        <div class="product-selector">
+          <div>
+            <strong>Mermelada de Corozo (250g)</strong>
+          </div>
+          <div class="qty-controls">
+            <button type="button" class="btn-qty" onclick="changeQty('mermelada', -1)">-</button>
+            <span id="qty-mermelada" style="font-weight:bold;">1</span>
+            <button type="button" class="btn-qty" onclick="changeQty('mermelada', 1)">+</button>
+          </div>
+        </div>
+
+        <!-- SELECTOR SIROPE -->
+        <div class="product-selector">
+          <div>
+            <strong>Sirope de Corozo (159ml)</strong>
+          </div>
+          <div class="qty-controls">
+            <button type="button" class="btn-qty" onclick="changeQty('sirope', -1)">-</button>
+            <span id="qty-sirope" style="font-weight:bold;">0</span>
+            <button type="button" class="btn-qty" onclick="changeQty('sirope', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Notas adicionales (Opcional):</label>
+          <input type="text" id="notas" class="form-control" placeholder="Ej. Entregar en la tarde">
+        </div>
+
+        <button type="submit" class="btn-order-submit">
+          <span>📲 Enviar Pedido por WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contacto">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h5 class="brand-font">FRUTOS DE LA PALMA</h5>
+        <p>Sabor natural. Tradición que se disfruta.</p>
+        <p>Del corazón del Caribe, para tu bienestar.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contacto Directo</h5>
+        <p>📍 Montería, Córdoba - Colombia</p>
+        <p>📱 WhatsApp: +57 350 5933980</p>
+        <p>✉️ Correo: frutosdelapalma29@gmail.com</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Síguenos en Redes</h5>
+        <div class="social-links">
+          <a href="https://instagram.com/frutos.de.lapalma26" target="_blank" class="social-btn">📷 Instagram: @frutos.de.lapalma26</a>
+          <a href="https://www.tiktok.com/@frutos_de_la_palma" target="_blank" class="social-btn">🎵 TikTok: @frutos_de_la_palma</a>
+          <a href="https://www.facebook.com/share/1CNLtpVLQX/" target="_blank" class="social-btn">📘 Facebook Oficial</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2026 Frutos de la Palma (Sinuana Corozo). Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT DE CALCULADORA Y WHATSAPP -->
+  <script>
+    let qtyMermelada = 1;
+    let qtySirope = 0;
+
+    function changeQty(product, change) {
+      if (product === 'mermelada') {
+        qtyMermelada = Math.max(0, qtyMermelada + change);
+        document.getElementById('qty-mermelada').innerText = qtyMermelada;
+      } else if (product === 'sirope') {
+        qtySirope = Math.max(0, qtySirope + change);
+        document.getElementById('qty-sirope').innerText = qtySirope;
+      }
     }
 
-    function restartQuiz() {
-      cur = 0;
-      answers.fill(null);
-      document.getElementById('result-screen').classList.add('hidden');
-      document.getElementById('welcome-screen').classList.remove('hidden');
-    }
+    document.getElementById('wa-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const nombre = document.getElementById('nombre').value;
+      const direccion = document.getElementById('direccion').value;
+      const notas = document.getElementById('notas').value;
+
+      if (qtyMermelada === 0 && qtySirope === 0) {
+        alert('Por favor selecciona al menos un producto.');
+        return;
+      }
+
+      let mensaje = `Hola *Frutos de la Palma*, me gustaría realizar un pedido:\n\n`;
+      mensaje += `👤 *Nombre:* ${nombre}\n`;
+      mensaje += `📍 *Dirección:* ${direccion}\n\n`;
+      mensaje += `📦 *Detalle del Pedido:*\n`;
+      
+      if (qtyMermelada > 0) {
+        mensaje += `- ${qtyMermelada}x Mermelada de Corozo (250g)\n`;
+      }
+      if (qtySirope > 0) {
+        mensaje += `- ${qtySirope}x Sirope de Corozo (159ml)\n`;
+      }
+
+      if (notas) {
+        mensaje += `\n📝 *Notas:* ${notas}`;
+      }
+
+      const phone = "573505933980";
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+    });
   </script>
 </body>
 </html>
