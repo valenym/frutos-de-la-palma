@@ -123,14 +123,15 @@
     }
 
     /* HERO SECTION */
-  .hero {
-  background: linear-gradient(rgba(27, 59, 43, 0.6), rgba(27, 59, 43, 0.7)),
-              url('logo.frutosdelapalma.jpeg');
-  background-size: contain;
+.hero {
+  background-color: #1b3b2b; /* Color verde base idéntico al fondo */
+  background-image: linear-gradient(rgba(27, 59, 43, 0.7), rgba(27, 59, 43, 0.7)),
+                    url('logo.frutosdelapalma.jpeg');
+  background-size: auto 90%; /* Ajusta el tamaño basándose en la altura para que no se deforme */
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   color: var(--blanco);
-  padding: 90px 20px;
+  padding: 120px 20px;
   text-align: center;
 }
 
@@ -566,7 +567,7 @@
         <div class="logo-badge">🌴</div>
         <div class="logo-text">
           <h1 class="brand-font">FRUTOS DE LA PALMA</h1>
-          <span>Corozo Sinuano</span>
+          <span>Sabor natural del Caribe</span>
         </div>
       </div>
       <nav>
@@ -649,14 +650,14 @@
         </div>
         <div class="product-info">
           <h4 class="brand-font">Sirope de Corozo</h4>
-          <span class="product-measure">150 ml</span>
+          <span class="product-measure">90 ml</span>
           <p>Concentrado natural perfecto para preparar bebidas refrescantes, cócteles, raspados o para darle un toque exótico a tus postres.</p>
           <ul class="product-list">
-            <li>Presentación de 150 mililitros</li>
+            <li>Presentación de 90 mililitros</li>
             <li>Rinde para múltiples preparaciones</li>
             <li>Sabor auténtico del Caribe colombiano</li>
           </ul>
-          <a href="#pedir" class="btn-card">Pedir Sirope (150ml)</a>
+          <a href="#pedir" class="btn-card">Pedir Sirope (90ml)</a>
         </div>
       </div>
     </div>
@@ -672,7 +673,7 @@
     <div class="recipes-grid">
       <div class="recipe-card">
         <h4>🍹 Jugos y Refrescos</h4>
-        <p>Mezcla 2 cucharadas de Sirope de Corozo (150ml) en agua fría con hielo para obtener un refresco tradicional e instantáneo.</p>
+        <p>Mezcla 2 cucharadas de Sirope de Corozo (90ml) en agua fría con hielo para obtener un refresco tradicional e instantáneo.</p>
       </div>
       <div class="recipe-card">
         <h4>🧀 Tabla de Quesos</h4>
@@ -719,7 +720,7 @@
         <!-- SELECTOR SIROPE -->
         <div class="product-selector">
           <div>
-            <strong>Sirope de Corozo (150ml)</strong>
+            <strong>Sirope de Corozo (90ml)</strong>
           </div>
           <div class="qty-controls">
             <button type="button" class="btn-qty" onclick="changeQty('sirope', -1)">-</button>
@@ -767,7 +768,7 @@
     </div>
 
     <div class="copyright">
-      <p>&copy; 2026 Frutos de la Palma (Corozo Sinuano). Todos los derechos reservados.</p>
+      <p>&copy; 2026 Frutos de la Palma (Sabor natural del Caribe). Todos los derechos reservados.</p>
     </div>
   </footer>
 
@@ -807,7 +808,7 @@
         mensaje += `- ${qtyMermelada}x Mermelada de Corozo (250g)\n`;
       }
       if (qtySirope > 0) {
-        mensaje += `- ${qtySirope}x Sirope de Corozo (150ml)\n`;
+        mensaje += `- ${qtySirope}x Sirope de Corozo (90ml)\n`;
       }
 
       if (notas) {
